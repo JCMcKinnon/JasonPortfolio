@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Goal
+  - Start
+  - GameManager
+  - SpectrumData
+  - Background1
+  - Background2
   layers:
   - Default
   - TransparentFX
