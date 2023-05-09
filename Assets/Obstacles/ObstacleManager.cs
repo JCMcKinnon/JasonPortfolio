@@ -5,43 +5,43 @@ using UnityEngine;
 public class ObstacleManager : MonoBehaviour
 {
     public GameObject[] easyObstacles;
-    public GameObject[] hardObstacles;
 
     public GameObject[] instantiatedObjects;
-    public float spawnWeight;
 
     private float timer;
     public GameObject start;
-    private GameObject goal;
+    public GameObject goal;
 
     public float speed;
     // Start is called before the first frame update
     private void Awake()
     {
-        instantiatedObjects = new GameObject[4];
+        instantiatedObjects = new GameObject[80];
     }
     void Start()
     {
-        // Instantiate(easyObstacles[0], Vector3.zero, Quaternion.identity);
         InstantiateAllObjects();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime; 
-        if(timer > 0.7f)
+        if (!StateManager.isPaused)
         {
-            SpawnObstacles();
-            timer = 0;
+            timer += Time.deltaTime;
+            if (timer > 2f)
+            {
+                SpawnObstacles();
+                timer = 0;
+            }
+            MoveObstacles();
         }
-        MoveObstacles();
+       
     }
 
     public void SpawnObstacles()
     {
-        var instance = instantiatedObjects[Random.Range(-1, 5)];
-
+        var instance = instantiatedObjects[Random.Range(0, 80)];               
         if (!instance.activeSelf)
         {
             instance.transform.position = start.transform.position;
@@ -49,30 +49,30 @@ public class ObstacleManager : MonoBehaviour
         }
         else
         {
-            instance = instantiatedObjects[Random.Range(-1, 5)];
+            SpawnObstacles();
         }
-       
     }
-
+ 
     public void MoveObstacles()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < instantiatedObjects.Length; i++)
         {
-            if (instantiatedObjects[i].activeSelf)
+            var thevector = Vector3.left * Time.deltaTime * speed;
+            instantiatedObjects[i].transform.Translate(Vector3.left * Time.deltaTime * speed, Space.Self);
+            if (instantiatedObjects[i].transform.position.x <= goal.transform.position.x)
             {
-                instantiatedObjects[i].transform.position += Vector3.left * Time.deltaTime * speed;
+                instantiatedObjects[i].SetActive(false);
+                instantiatedObjects[i].transform.position = start.transform.position;                           
             }
         }
     }
     public void InstantiateAllObjects()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            var easyInstance = Instantiate(easyObstacles[i], start.transform.position + new Vector3(-10,0,0), Quaternion.identity);
-            var hardInstance = Instantiate(hardObstacles[i], start.transform.position, Quaternion.identity);
-            instantiatedObjects[i] = (easyInstance);
-            easyInstance.SetActive(false);
-            hardInstance.SetActive(false);
-        }
+    {       
+            for (int x = 0; x < 80; x++)
+            {
+                var instance = Instantiate(easyObstacles[Random.Range(0,8)], start.transform.position + new Vector3(-10, 0, 0), Quaternion.identity);
+                instantiatedObjects[x] = instance;
+                instance.SetActive(false);
+            }                 
     }
 }

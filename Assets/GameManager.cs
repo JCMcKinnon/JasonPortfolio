@@ -54,15 +54,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-       // PlaceBackgroundAtStartPosition();
-        for (int i = 0; i < backgroundObjectsArray1.Length; i++)
+        if (!StateManager.isPaused)
         {
-            ConstantlyMoveBackgroundObject(backgroundObjectsArray1[i]);
-            ConstantlyMoveBackgroundObject(backgroundObjectsArray2[i]);
-            CheckIfAtGoalAndMoveToStart(backgroundObjectsArray1[i], goal.transform.position);
-            CheckIfAtGoalAndMoveToStart(backgroundObjectsArray2[i], goal.transform.position);
+            timer += Time.deltaTime;
+            // PlaceBackgroundAtStartPosition();
+            for (int i = 0; i < backgroundObjectsArray1.Length; i++)
+            {
+                ConstantlyMoveBackgroundObject(backgroundObjectsArray1[i]);
+                ConstantlyMoveBackgroundObject(backgroundObjectsArray2[i]);
+                CheckIfAtGoalAndMoveToStart(backgroundObjectsArray1[i], goal.transform.position);
+                CheckIfAtGoalAndMoveToStart(backgroundObjectsArray2[i], goal.transform.position);
+            }
         }
+        
+  
     }
 
     public void PlaceBackgroundAtStartPosition()

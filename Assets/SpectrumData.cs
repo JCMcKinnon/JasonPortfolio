@@ -12,6 +12,8 @@ public class SpectrumData : MonoBehaviour
     public float[] frequencyBands;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +25,24 @@ public class SpectrumData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
-
-        int samplesPerChunk = samples.Length / numberofChunks;
-        for (int i = 0; i < numberofChunks; i++)
+        if (!StateManager.isPaused)
         {
-            float average = 0;
-            for (int j = 0; j < samplesPerChunk; j++)
+            audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
+
+            int samplesPerChunk = samples.Length / numberofChunks;
+            for (int i = 0; i < numberofChunks; i++)
             {
-                average += samples[(i * samplesPerChunk) + j];
+                float average = 0;
+                for (int j = 0; j < samplesPerChunk; j++)
+                {
+                    average += samples[(i * samplesPerChunk) + j];
+                }
+                average /= samplesPerChunk;
+                averageSamples[i] = average;
             }
-            average /= samplesPerChunk;
-            averageSamples[i] = average;
         }
+        
+        
     }
     public void GetFrequecyBands()
     {
