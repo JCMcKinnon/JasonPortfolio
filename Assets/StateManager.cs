@@ -6,4 +6,7 @@ public static class StateManager
 {
     public static bool isPaused;
 
+
+    
+
 }

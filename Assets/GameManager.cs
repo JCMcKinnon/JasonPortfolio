@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public int ammountToSpawn;
 
+    public GameObject Canvas;
+
     public void Awake()
     {
         backgroundObjects = new Queue<GameObject>();
@@ -66,7 +68,17 @@ public class GameManager : MonoBehaviour
                 CheckIfAtGoalAndMoveToStart(backgroundObjectsArray2[i], goal.transform.position);
             }
         }
-        
+
+
+        if (StateManager.isPaused)
+        {
+            Canvas.SetActive(true);
+
+        }
+        else
+        {
+            Canvas.SetActive(false);
+        }
   
     }
 

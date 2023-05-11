@@ -49,8 +49,8 @@ public class MusicalCube : MonoBehaviour
         {
             if (hasReachedBuffer)
             {
-                scaleTo = new Vector3(0, Mathf.Clamp(spectrumData.averageSamples[channel] * 200f, 0.5f, 1.5f), 0);
-               var scaleTo2 = new Vector3(0, Mathf.Clamp(spectrumData.averageSamples[4] * 500f, 1.5f, 2f), 0);
+                scaleTo = new Vector3(0, Mathf.Clamp(spectrumData.averageSamples[channel] * 100f, 0.2f, 0.6f), 0);
+               var scaleTo2 = new Vector3(0, Mathf.Clamp(spectrumData.averageSamples[4] * 200f, 0.3f, 0.8f), 0);
 
                 for (int i = 0; i < objects.Length; i++)
                 {

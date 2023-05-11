@@ -83,8 +83,8 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 993e652fdb01383459bdfb274b67d32c, type: 2}
+  - {fileID: 2100000, guid: 993e652fdb01383459bdfb274b67d32c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,11 +202,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.29511118, y: 4.1149654}
-      - {x: -2.6127276, y: 2.0022964}
-      - {x: -1.5020319, y: -1.4160733}
-      - {x: 2.0922546, y: -1.4160728}
-      - {x: 3.20295, y: 2.002297}
+    - - {x: -2, y: -2}
+      - {x: 1.9840035, y: 1.9016298}
+      - {x: 2.5902224, y: 4.1149654}
+      - {x: 2, y: -2}
+      - {x: -1.8056297, y: -2}
+      - {x: -1.9490371, y: -2}
+      - {x: -2, y: -2}
 --- !u!1 &4974699110452562654
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +260,8 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 993e652fdb01383459bdfb274b67d32c, type: 2}
+  - {fileID: 2100000, guid: 993e652fdb01383459bdfb274b67d32c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
