@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SquishySquareMainMenu.unity
+    guid: 1ddf8548eeb8d80458b2e33ee86ff155
   m_configObjects: {}

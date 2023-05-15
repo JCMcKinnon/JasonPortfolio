@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
             }
             if (StateManager.isPaused)
             {
+
+                var scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
                 transform.position = new Vector3(-5.3f, 0, 0);
                 ren.enabled = true;
                 child.SetActive(false);
